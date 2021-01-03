@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Search</title>
+        <title>Results</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -22,25 +22,18 @@
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <form method="POST" action="results"> @csrf <!-- This is important for Laravel's cookies apparently. -->
-                        <div class="search">
-                            <label for="searchBox" style="color:white;">Search for:</label>
-                            <input id="searchBox" name="string">
-                            <label for="searchType" style="color:white;">Type:</label>
-                            <select id="searchType" name="type" class="dropdown">
-                                <option class="dropdown-item">All</option>
-                                <option class="dropdown-item" value="images">Images</option>
-                                <option class="dropdown-item" value="videos">Videos</option>
-                                <option class="dropdown-item" value="text">Text</option>
-                            </select>
-                            <button type="submit" class="btn btn-light">Search</button>
-                        </div>
-                    </form>
+                    <a class="btn btn-primary btn-light" href="../public/" style="color:white;">Back to Search</a>
                 </div>
-                <div>
-                    <p style="color:white;">Hint: Search for 'Hello', 'First' or 'Example'.</p>
+
+                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+
+                        {!!$searchResults!!}
+
+                    </div>
                 </div>
             </div>
         </div>
